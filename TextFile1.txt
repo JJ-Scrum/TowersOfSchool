@@ -1,0 +1,34 @@
+﻿Tower Defence Konzept
+Rollenverteilung:
+Entwickler: Jonas G
+Designer: Fynn
+Oberfläche: Niels
+Arbeitstitel des Spiels:
+Towers of School
+Szenario:
+Manche Lehrer sind korrupt geworden, während manche andere Lehrer auf der Seite der Schüler stehen.
+Herr Baumstamm der schlimmste Lehrer der Schule hat eine Revolution gestartet, damit Schüler schlecht behandelt werden. Gute Lehrer und Schüler haben sich verbündet, um ihn aufzuhalten und Frieden in diese Schule zu bringen.
+
+Spezielle Ideen:
+-	Ein Lehrer (Gegner) sagt mit einer 0.1% Wahrscheinlichkeit „Zu spät, 10 Minuten warten!“ und pausiert den Tower, der sich am Nächsten an diesem Lehrer Gegner befindet (nur ein lehrertyp darf diese Fähigkeit haben, z.B. Herr Baumstamm) für 10 Minuten.
+-	Teurer Turm, aber dafür sehr Stark (Bezahlbar, wenn man sehr viel Geld gefarmt hat)
+-	Anstatt direkt Geld in Euro zu bekommen, bekommt Man Lohnscheine, die man erstmal vorzeigen muss, um das Geld zu bekommen (Das Finanzamt nimmt einen Teil in Form von Steuern)
+-	Attacken von schlechten Lehrern: Unangekündigte Tests, 4h Klassenarbeiten, Handygarage, Vertretung 7/8 Stunde, KI-generierte Aufgaben, schlechte Noten, Arbeiten nach Schule Nachschreiben
+-	Attacken von guten Lehrern (Tower): 1 2 Stunde Frei, gemeinsames Frühstück
+-	Negative Effekte: Schlechtes Netz, kein Netz, kein Strom, Heizung immer an
+-	Positive Effekte: Gutes Netz, Mobiler Hotspot
+
+
+
+
+User Stories:
+-Als Benutzer möchte ich Türme platzieren können, um die Gegner zu vertreiben
+-Als User möchte ich Gegner, um mein Geld für Türme ausgeben zu können
+-Als User möchte ich upgrade für Türme kaufen können, damit die Türme mehr schaden machen
+-Als User möchte ich Türme (für die Hälfte des originalkaufpreises) verkaufen können und wenn er upgegradet wurde (z.B. eine Fähigkeit verbessert wurde) soll er für etwas mehr verkauft werden können.
+-Als User möchte ich ein Prestige System haben, in dem ich auch dauerhafte Upgrades kaufen kann für Diamanten, damit ich die Stats der Türme boosten kann
+-Ich als User möchte Fixigkeiten für meine Türme, damit ich die Gegner einfacher besiegen kann
+-Ich als User möchte, dass die Gegner nach der Zeit stärker werden, damit es nicht zu einfach wird
+-Als User möchte ich meine Türme nur an bestimmen Stellen platzieren können, damit nicht irgendwann zu viele Türme auf der Map sind
+-Ich als User möchte, dass die Gegner nur auf einem bestimmten Weg laufen, damit ich die Gegner mit meinen Türmen vertreiben kann
+-ich als User möchte, wenn man stirbt, gerickrollt werden (in Godot müsste man eine art Browser nutzen, um YT zu öffnen, wenn möglich)
