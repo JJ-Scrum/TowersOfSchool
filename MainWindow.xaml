@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TowersOfSchool"
         mc:Ignorable="d"
-        Title="Towers of School" Height="450" Width="800">
+        Title="Towers of School"> <!-- Height="450" Width="800" -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -38,7 +38,7 @@
         <Canvas x:Name="gameCanvas" Background="Transparent" Grid.Column="1" Grid.Row="0" Panel.ZIndex="10"/>
 
         <!-- UI Panel: Spieler-Info -->
-        <StackPanel Grid.Column="2" Margin="10,360,10,10" Orientation="Vertical" Background="#FFFFFF" Opacity="0.95">
+        <StackPanel Grid.Column="2" VerticalAlignment="Bottom" Margin="10,10,10,10" Orientation="Vertical" Background="#FFFFFF" Opacity="0.95"> <!-- Margin="10,360,10,10" -->
             <TextBlock Text="Player Info" FontSize="14" FontWeight="Bold" Foreground="Black" Margin="5"/>
             <TextBlock x:Name="money_display" Text="Money: 200" FontSize="12" Foreground="DarkGreen" Margin="5,2,5,0"/>
             <TextBlock x:Name="castle_health_display" Text="Castle HP: 20" FontSize="12" Foreground="DarkRed" Margin="5,2,5,0"/>

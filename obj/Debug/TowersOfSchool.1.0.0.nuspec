@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>TowersOfSchool</id>
+    <version>1.0.0</version>
+    <authors>TowersOfSchool</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="eb33d6082124c130e33ee30fe2342d44bfbdb45d" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\TowersOfSchool.runtimeconfig.json" target="lib\net8.0-windows7.0\TowersOfSchool.runtimeconfig.json" />
+    <file src="C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\TowersOfSchool.dll" target="lib\net8.0-windows7.0\TowersOfSchool.dll" />
+  </files>
+</package>

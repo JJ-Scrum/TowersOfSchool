@@ -18,3 +18,18 @@ C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windo
 C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windows\TowersOfSchool.genruntimeconfig.cache
 C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windows\ref\TowersOfSchool.dll
 C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windows\TowersOfSchool_MarkupCompile.lref
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windows\TowersOfSchool.sourcelink.json
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\02aa0790086f91a.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\big_tree.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\big_tree_nobg.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\castle_inside.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\castle_outside.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\cave_entrance.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Enemy1.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Screenshot 2026-06-13 120721.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\stone_path.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\stone_path2.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Towers of School 13.06.2026 12_06_56.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windows\TowersOfSchool_Content.g.cs
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Screenshot 2026-06-13 124613.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Screenshot 2026-06-13 130549.png

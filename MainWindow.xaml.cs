@@ -89,47 +89,24 @@ namespace TowersOfSchool
 
         private void DrawPath()
         {
-            // Gegner-Pfad zeichnen (basierend auf PathSystem)
+            // Gegner-Pfad zeichnen mit stone_path.png Tiles
             var pathPoints = gameController.PathSystem.PathPoints;
 
-            if (pathPoints.Count > 1)
-            {
-                for (int i = 0; i < pathPoints.Count - 1; i++)
-                {
-                    var p1 = pathPoints[i];
-                    var p2 = pathPoints[i + 1];
-                    
-                    var line = new Line
-                    {
-                        X1 = p1.X,
-                        Y1 = p1.Y,
-                        X2 = p2.X,
-                        Y2 = p2.Y,
-                        Stroke = Brushes.SaddleBrown,
-                        StrokeThickness = 3
-                    };
-                    line.SetValue(NameProperty, "path_line");
-                    Canvas.SetZIndex(line, 0);
-                    gameCanvas.Children.Add(line);
-                }
-            }
-
-            // Zeichne Pfad-Punkte als kleine Kreise
             foreach (var point in pathPoints)
             {
-                var circle = new Ellipse
+                var pathTile = new Image
                 {
-                    Width = 10,
-                    Height = 10,
-                    Fill = Brushes.SaddleBrown,
-                    Stroke = Brushes.Black,
-                    StrokeThickness = 0.5
+                    Width = 45,
+                    Height = 45,
+                    Source = new BitmapImage(new System.Uri("stone_path.png", System.UriKind.Relative)),
+                    Opacity = 0.8
                 };
-                circle.SetValue(NameProperty, "path_line");
-                Canvas.SetLeft(circle, point.X - 5);
-                Canvas.SetTop(circle, point.Y - 5);
-                Canvas.SetZIndex(circle, 0);
-                gameCanvas.Children.Add(circle);
+                pathTile.SetValue(NameProperty, "path_tile");
+                
+                Canvas.SetLeft(pathTile, point.X - 22.5);  // Zentrieren
+                Canvas.SetTop(pathTile, point.Y - 22.5);
+                Canvas.SetZIndex(pathTile, 0);
+                gameCanvas.Children.Add(pathTile);
             }
         }
 
@@ -311,6 +288,7 @@ namespace TowersOfSchool
                 Canvas.SetZIndex(rangeCircle, 1);
                 gameCanvas.Children.Add(rangeCircle);
             }
+            DrawTowerSlots(); // Test
         }
 
         private void UpdateUI()
@@ -365,7 +343,7 @@ namespace TowersOfSchool
             var circle = sender as Ellipse;
             if (circle?.Tag is int slotIndex)
             {
-                var slots = gameController.TowerPlacementSystem.GetAvailableSlots();
+                var slots = gameController.TowerPlacementSystem.AvailableSlots; // Vorher "GetAvailableSlots()"
                 if (slotIndex >= 0 && slotIndex < slots.Count)
                 {
                     selectedSlot = slots[slotIndex];
@@ -384,7 +362,7 @@ namespace TowersOfSchool
             var clickPos = e.GetPosition(gameCanvas);
             
             // Suche nach dem nächsten Slot zur Click-Position
-            var slots = gameController.TowerPlacementSystem.GetAvailableSlots();
+            var slots = gameController.TowerPlacementSystem.AvailableSlots; // Vorher "GetAvailableSlots()"
             for (int i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];

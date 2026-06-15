@@ -16,8 +16,8 @@ namespace TowersOfSchool.Systems
         public enum SpecialEnemyType
         {
             Regular,
-            HerBaumstamm,     // Der schlimmste Lehrer - hat speziale F�higkeit
-            StrictTeacher,     // Erzeugt zus�tzliche Gegner
+            HerBaumstamm,     // Der schlimmste Lehrer - hat speziale Fähigkeit
+            StrictTeacher,     // Erzeugt zusätzliche Gegner
             TechTeacher        // Verursacht Netzwerk-Probleme
         }
 
