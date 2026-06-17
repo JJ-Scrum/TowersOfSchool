@@ -288,7 +288,7 @@ namespace TowersOfSchool
                 Canvas.SetZIndex(rangeCircle, 1);
                 gameCanvas.Children.Add(rangeCircle);
             }
-            DrawTowerSlots(); // Test
+            //DrawTowerSlots(); // Test
         }
 
         private void UpdateUI()

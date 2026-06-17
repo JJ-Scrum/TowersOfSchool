@@ -31,7 +31,7 @@ namespace TowersOfSchool
             PlacedTowers = new List<Tower>();
             
             // Anfangsgeld
-            EconomySystem.PlayerMoney = 200;
+            EconomySystem.PlayerMoney = 10000; // TODO: Add to central config
         }
 
         /// <summary>
