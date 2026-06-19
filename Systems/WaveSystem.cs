@@ -61,7 +61,7 @@ namespace TowersOfSchool
 
                 enemy.SetTier(tier);
                 EnemiesSpawnedThisWave++;
-                CurrentEnemies.Add(enemy);
+                // Nicht hier hinzufügen - wird in GameController.Update() hinzugefügt
                 return enemy;
             }
 

@@ -18,6 +18,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("screenshot%202026-06-13%20120721.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("screenshot%202026-06-13%20124613.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("screenshot%202026-06-13%20130549.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("screenshot_path_bug.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("stone_path.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("stone_path2.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("towers%20of%20school%2013.06.2026%2012_06_56.png")]

@@ -20,6 +20,7 @@ namespace TowersOfSchool
         public Point CurrentPosition { get; set; }
         public float Speed { get; set; } // Pixel pro Frame
         public bool IsAlive { get; set; }
+        private float distanceAlongCurrentSegment = 0f; // Distanz bereits auf diesem Segment zurückgelegt
 
         public Enemy()
         {
@@ -85,6 +86,8 @@ namespace TowersOfSchool
 
             // Berechne die Bewegungsdistanz basierend auf Speed und deltaTime
             float distanceToMove = Speed * deltaTime;
+            
+            System.Diagnostics.Debug.WriteLine($"[MOVE] distanceToMove={distanceToMove:F2}, PathIndex={CurrentPathIndex}, MaxIndex={pathSystem.PathPoints.Count - 1}");
 
             // Bewege den Gegner schrittweise auf dem Pfad
             while (distanceToMove > 0 && CurrentPathIndex < pathSystem.PathPoints.Count - 1)
@@ -94,11 +97,16 @@ namespace TowersOfSchool
                 
                 double distanceToNext = currentPoint.DistanceTo(nextPoint);
                 
-                if (distanceToMove >= distanceToNext)
+                // Wie viel Distanz ist noch auf diesem Segment übrig?
+                float remainingDistanceOnSegment = (float)(distanceToNext - distanceAlongCurrentSegment);
+                
+                if (distanceToMove >= remainingDistanceOnSegment)
                 {
-                    // Gehe zum n�chsten Punkt
-                    distanceToMove -= (float)distanceToNext;
+                    // Gehe zum nächsten Punkt
+                    distanceToMove -= remainingDistanceOnSegment;
                     CurrentPathIndex++;
+                    distanceAlongCurrentSegment = 0f; // Zurücksetzen für das neue Segment
+                    
                     if (CurrentPathIndex < pathSystem.PathPoints.Count)
                     {
                         CurrentPosition = pathSystem.PathPoints[CurrentPathIndex];
@@ -106,8 +114,9 @@ namespace TowersOfSchool
                 }
                 else
                 {
-                    // Bewege dich teilweise zum n�chsten Punkt
-                    double ratio = distanceToMove / distanceToNext;
+                    // Bewege dich teilweise weiter auf diesem Segment
+                    distanceAlongCurrentSegment += distanceToMove;
+                    double ratio = distanceAlongCurrentSegment / distanceToNext;
                     CurrentPosition = new Point(
                         currentPoint.X + (nextPoint.X - currentPoint.X) * ratio,
                         currentPoint.Y + (nextPoint.Y - currentPoint.Y) * ratio
@@ -116,7 +125,7 @@ namespace TowersOfSchool
                 }
             }
 
-            PathProgress = (double)CurrentPathIndex / pathSystem.PathPoints.Count;
+            PathProgress = CurrentPathIndex / (double)(pathSystem.PathPoints.Count - 1);
         }
 
         /// <summary>

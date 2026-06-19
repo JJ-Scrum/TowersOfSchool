@@ -9,36 +9,37 @@
         Title="Towers of School"> <!-- Height="450" Width="800" -->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="543*"/>
-            <ColumnDefinition Width="254*"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <!-- Hintergrund-Texturen -->
-        <Image Source="/02aa0790086f91a.png" Stretch="Fill" Margin="0,0,127,207" Grid.ColumnSpan="2"/>
-        <Image Source="/02aa0790086f91a.png" Stretch="Fill" Margin="0,217,127,0" Grid.ColumnSpan="2"/>
-        <Image Source="/02aa0790086f91a.png" Stretch="Fill" Margin="407,0,0,207" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Image Source="/02aa0790086f91a.png" Stretch="Fill" Margin="407,217,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
-        
-        <!-- Baum-Deko -->
-        <Image x:Name="tree1" Margin="271,186,184,138" Source="/big_tree_nobg.png" Stretch="Fill" Grid.Column="1"/>
-        
-        <!-- Pfad-Kacheln mit Texturen -->
-        <Image x:Name="path_tile1" Margin="30,105,468,284" Source="/stone_path.png" Stretch="Fill" Height="45" Grid.Column="1"/>
-        <Image x:Name="path_tile2" Margin="30,150,468,239" Source="/stone_path.png" Stretch="Fill" Height="45" Grid.Column="1"/>
-        <Image x:Name="path_tile3" Margin="30,195,468,194" Source="/stone_path.png" Stretch="Fill" Height="45" Grid.Column="1"/>
-        <Image x:Name="path_tile4" Margin="30,240,468,149" Source="/stone_path.png" Stretch="Fill" Height="45" Grid.Column="1"/>
-        <Image x:Name="path_tile5" Margin="30,285,468,104" Source="/stone_path.png" Stretch="Fill" Height="45" Grid.Column="1"/>
-        
-        <!-- Spawn und Destination -->
-        <Image x:Name="enemy_spawn" Margin="-11,17,433,320" Source="/cave_entrance.png" Stretch="Fill" Grid.ColumnSpan="2"/>
-        <Image x:Name="enemy_dest" Grid.Column="2" Margin="46,17,23,301" Source="/castle_outside.png" Stretch="Fill"/>
-        
-        <!-- Hauptspielfeld mit Canvas (für Gegner/Türme) -->
-        <Canvas x:Name="gameCanvas" Background="Transparent" Grid.Column="1" Grid.Row="0" Panel.ZIndex="10"/>
+        <!-- Spielfeld Container mit Canvas -->
+        <Canvas x:Name="gameCanvas" Background="#2D5016" Grid.Column="0" Width="800" Height="450">
+            
+            <!-- Statische Hintergrund-Texturen (mit absoluten Positionen) -->
+            <Image Source="/02aa0790086f91a.png" Width="407" Height="207" Canvas.Left="0" Canvas.Top="0" Canvas.ZIndex="0"/>
+            <Image Source="/02aa0790086f91a.png" Width="407" Height="233" Canvas.Left="0" Canvas.Top="217" Canvas.ZIndex="0"/>
+            <Image Source="/02aa0790086f91a.png" Width="393" Height="207" Canvas.Left="407" Canvas.Top="0" Canvas.ZIndex="0"/>
+            <Image Source="/02aa0790086f91a.png" Width="393" Height="233" Canvas.Left="407" Canvas.Top="217" Canvas.ZIndex="0"/>
+            
+            <!-- Baum-Deko -->
+            <Image x:Name="tree1" Source="/big_tree_nobg.png" Width="250" Height="170" Canvas.Left="271" Canvas.Top="140" Canvas.ZIndex="1"/>
+            
+            <!-- Pfad-Kacheln (nur für Design-Ansicht, werden im Code nacherstellbar) -->
+            <Image x:Name="path_tile_static_1" Source="/stone_path.png" Width="45" Height="45" Canvas.Left="30" Canvas.Top="105" Canvas.ZIndex="1" Opacity="0.8"/>
+            <Image x:Name="path_tile_static_2" Source="/stone_path.png" Width="45" Height="45" Canvas.Left="30" Canvas.Top="150" Canvas.ZIndex="1" Opacity="0.8"/>
+            <Image x:Name="path_tile_static_3" Source="/stone_path.png" Width="45" Height="45" Canvas.Left="30" Canvas.Top="195" Canvas.ZIndex="1" Opacity="0.8"/>
+            <Image x:Name="path_tile_static_4" Source="/stone_path.png" Width="45" Height="45" Canvas.Left="30" Canvas.Top="240" Canvas.ZIndex="1" Opacity="0.8"/>
+            <Image x:Name="path_tile_static_5" Source="/stone_path.png" Width="45" Height="45" Canvas.Left="30" Canvas.Top="285" Canvas.ZIndex="1" Opacity="0.8"/>
+            
+            <!-- Spawn und Destination (statisch in XAML für Design) -->
+            <Image x:Name="enemy_spawn_img" Source="/cave_entrance.png" Width="60" Height="80" Canvas.Left="35" Canvas.Top="90" Canvas.ZIndex="1"/>
+            <Image x:Name="enemy_dest_img" Source="/castle_outside.png" Width="70" Height="85" Canvas.Left="730" Canvas.Top="80" Canvas.ZIndex="1"/>
+            
+        </Canvas>
 
         <!-- UI Panel: Spieler-Info -->
-        <StackPanel Grid.Column="2" VerticalAlignment="Bottom" Margin="10,10,10,10" Orientation="Vertical" Background="#FFFFFF" Opacity="0.95"> <!-- Margin="10,360,10,10" -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Margin="10,10,10,10" Orientation="Vertical" Background="#FFFFFF" Opacity="0.95">
             <TextBlock Text="Player Info" FontSize="14" FontWeight="Bold" Foreground="Black" Margin="5"/>
             <TextBlock x:Name="money_display" Text="Money: 200" FontSize="12" Foreground="DarkGreen" Margin="5,2,5,0"/>
             <TextBlock x:Name="castle_health_display" Text="Castle HP: 20" FontSize="12" Foreground="DarkRed" Margin="5,2,5,0"/>

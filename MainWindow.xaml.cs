@@ -81,9 +81,15 @@ namespace TowersOfSchool
             }
             
             // DEBUG
-            if (frameCount % 60 == 0)
+            if (frameCount % 30 == 0)  // Jede 0.5 Sekunden
             {
                 System.Diagnostics.Debug.WriteLine($"Gegner: {gameController.WaveSystem.CurrentEnemies.Count}, Welle: {gameController.WaveSystem.CurrentWave}");
+                System.Diagnostics.Debug.WriteLine($"PathPoints Count: {gameController.PathSystem.PathPoints.Count}");
+                if (gameController.WaveSystem.CurrentEnemies.Count > 0)
+                {
+                    var enemy = gameController.WaveSystem.CurrentEnemies[0];
+                    System.Diagnostics.Debug.WriteLine($"Enemy PathIndex: {enemy.CurrentPathIndex}, Pos: ({enemy.CurrentPosition.X:F1}, {enemy.CurrentPosition.Y:F1}), Speed: {enemy.Speed}");
+                }
             }
         }
 
@@ -203,12 +209,12 @@ namespace TowersOfSchool
 
         private void UpdateCanvas()
         {
-            // Lösche alte Gegner- und Tower-Zeichnungen (aber nicht den Pfad und Slots)
+            // Lösche alte dynamische Zeichnungen (Gegner, Türme, Range-Indikatoren)
             var toRemove = gameCanvas.Children
                 .OfType<UIElement>()
                 .Where(x => {
                     var name = (string)x.GetValue(NameProperty);
-                    return name == "enemy_visual" || name == "tower_visual";
+                    return name == "enemy_visual" || name == "tower_visual" || name == "slot_range";
                 })
                 .ToList();
 
@@ -271,24 +277,36 @@ namespace TowersOfSchool
                 Canvas.SetTop(rect, tower.Position.Y - 12.5);
                 Canvas.SetZIndex(rect, 5);
                 gameCanvas.Children.Add(rect);
-
-                // Tower Range Kreis (schwach sichtbar)
-                var rangeCircle = new Ellipse
-                {
-                    Width = tower.Range * 2,
-                    Height = tower.Range * 2,
-                    Stroke = Brushes.CornflowerBlue,
-                    StrokeThickness = 0.5,
-                    Opacity = 0.3
-                };
-                rangeCircle.SetValue(NameProperty, "tower_visual");
-
-                Canvas.SetLeft(rangeCircle, tower.Position.X - tower.Range);
-                Canvas.SetTop(rangeCircle, tower.Position.Y - tower.Range);
-                Canvas.SetZIndex(rangeCircle, 1);
-                gameCanvas.Children.Add(rangeCircle);
             }
-            //DrawTowerSlots(); // Test
+
+            // Range-Indikatoren um verfügbare Slots - nur im Platzierungsmodus sichtbar
+            // Das hilft dem Spieler zu sehen, welche Gegner ein Turm erreichen würde
+            if (isPlacingTower)
+            {
+                const double TOWER_RANGE = 150; // Standardreichweite eines neuen Turms
+
+                foreach (var slot in gameController.TowerPlacementSystem.AvailableSlots)
+                {
+                    // Nur für freie Slots anzeigen
+                    if (!slot.IsOccupied)
+                    {
+                        var rangeCircle = new Ellipse
+                        {
+                            Width = TOWER_RANGE * 2,
+                            Height = TOWER_RANGE * 2,
+                            Stroke = Brushes.CornflowerBlue,
+                            StrokeThickness = 0.5,
+                            Opacity = 0.3
+                        };
+                        rangeCircle.SetValue(NameProperty, "slot_range");
+
+                        Canvas.SetLeft(rangeCircle, slot.Position.X - TOWER_RANGE);
+                        Canvas.SetTop(rangeCircle, slot.Position.Y - TOWER_RANGE);
+                        Canvas.SetZIndex(rangeCircle, 1);
+                        gameCanvas.Children.Add(rangeCircle);
+                    }
+                }
+            }
         }
 
         private void UpdateUI()

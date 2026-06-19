@@ -33,3 +33,4 @@ C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windo
 C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\obj\Debug\net8.0-windows\TowersOfSchool_Content.g.cs
 C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Screenshot 2026-06-13 124613.png
 C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\Screenshot 2026-06-13 130549.png
+C:\Users\jonas\source\repos\TowersOfSchool\TowersOfSchool\bin\Debug\net8.0-windows\screenshot_path_bug.png
