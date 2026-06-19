@@ -1,0 +1,12 @@
+﻿Das ECHTE Problem war:
+
+Die Position wurde jedes Frame VON PUNKT 0 AUS NEU BERECHNET mit dem gleichen Ratio
+Sie wurde also nicht kumuliert über mehrere Frames
+
+
+Die Lösung:
+
+Ich fügte distanceAlongCurrentSegment hinzu - speichert, wie viel der Enemy auf dem aktuellen Segment bereits gegangen ist
+Jeder Frame wird diese Distanz addiert (kumuliert)
+Wenn genug Distanz akkumuliert wurde, geht der Enemy zum nächsten Punkt
+Die Position wird jetzt korrekt berechnet basierend auf der kumulierten Distanz
