@@ -26,11 +26,16 @@ namespace TowersOfSchool.Models
             return new Point(a.X * scalar, a.Y * scalar);
         }
 
-        public double DistanceTo(Point other)
+        public readonly double DistanceTo(double x, double y)
         {
-            double dx = other.X - X;
-            double dy = other.Y - Y;
+            double dx = x - X;
+            double dy = y - Y;
             return System.Math.Sqrt(dx * dx + dy * dy);
+        }
+
+        public readonly double DistanceTo(Point other)
+        {
+            return DistanceTo(other.X, other.Y);
         }
     }
 }
